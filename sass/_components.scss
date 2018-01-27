@@ -1,0 +1,119 @@
+/*//?----------  LOGO  ----------*/
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
+/*//?----------  SEARCH  ----------*/
+.search {
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__input {
+    /*//* the following props don't all inherit unless specifically told to, but then will look up the parent tree until they find the 'prop:value', could be direct parent all the way up to the html tag. */
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--c-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    /*//* a high value will provide the rounded corners */
+    border-radius: 100px;
+    width: 90%;
+    /*//* extend input field over to where button w/ icon were */
+    margin-right: -2rem;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--c-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--c-grey-light-4);
+    }
+  }
+
+  &__button {
+    border: none;
+    background-color: transparent;
+    /*//* move button (w/ icon) on top of the input field */
+    position: relative;
+    right: 1rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--c-primary);
+  }
+}
+
+/*//?----------  USER NAVIGATION  ----------*/
+.user-nav {
+  /*//* have entire element vertically fill the 'header' parent */
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  /*//* all direct children (__icon-box(es) and __user) */
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    /*//* needed so background-color will fill the space when hovered */
+    height: 100%;
+    /*//* vertically center the contained elements (__icon(s) and __user-photo/name) */
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: var(--c-grey-light-2);
+    }
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--c-grey-dark-2);
+  }
+
+  &__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--c-primary-light);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    /*//* !!!!  FLEXBOX WILL ALSO WORK ON THE TEXT CONTENT WITHIN AN ELEMENT !!!! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
