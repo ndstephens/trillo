@@ -1,7 +1,7 @@
 /*//?----------  LOGO  ----------*/
 .logo {
   height: 3.25rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 /*//?----------  SEARCH  ----------*/
@@ -44,7 +44,6 @@
     /*//* move button (w/ icon) on top of the input field */
     position: relative;
     right: 1rem;
-    transition: all 0.1s;
 
     &:focus {
       outline: none;
@@ -64,25 +63,57 @@
 
 /*//?----------  USER NAVIGATION  ----------*/
 .user-nav {
+  /*//* have entire element vertically fill the 'header' parent */
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  /*//* all direct children (__icon-box(es) and __user) */
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    /*//* needed so background-color will fill the space when hovered */
+    height: 100%;
+    /*//* vertically center the contained elements (__icon(s) and __user-photo/name) */
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: var(--c-grey-light-2);
+    }
+  }
+
   &__icon-box {
+    position: relative;
   }
 
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+    fill: var(--c-grey-dark-2);
   }
 
   &__notification {
-  }
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--c-primary-light);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
 
-  &__user {
+    /*//* !!!!  FLEXBOX WILL ALSO WORK ON THE TEXT CONTENT WITHIN AN ELEMENT !!!! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
-  }
-
-  &__user-name {
+    margin-right: 1rem;
   }
 }
