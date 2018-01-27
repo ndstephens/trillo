@@ -1,10 +1,11 @@
-/*//?----------  LOGO  ----------*/
+/*//?===============  HEADER SECTION  ================*/
+/*//?----------  MAIN LOGO  ----------*/
 .logo {
   height: 3.25rem;
   margin-left: 2rem;
 }
 
-/*//?----------  SEARCH  ----------*/
+/*//?----------  SEARCH INPUT FIELD ----------*/
 .search {
   flex: 0 1 40%;
   display: flex;
@@ -61,7 +62,7 @@
   }
 }
 
-/*//?----------  USER NAVIGATION  ----------*/
+/*//?----------  USER NAVIGATION / DETAILS ----------*/
 .user-nav {
   /*//* have entire element vertically fill the 'header' parent */
   align-self: stretch;
@@ -116,4 +117,27 @@
     border-radius: 50%;
     margin-right: 1rem;
   }
+}
+
+/*//?===============  SIDE-BAR NAVIGATION SECTION  ================*/
+/*//?----------  NAVIGATION  ----------*/
+.side-nav {
+  &__item {
+  }
+
+  &__link {
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+/*//?----------  LEGAL  ----------*/
+.legal {
+  font-size: 1.2rem;
+  color: var(--c-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
 }
