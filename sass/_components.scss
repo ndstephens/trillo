@@ -1,19 +1,64 @@
 /*//?----------  LOGO  ----------*/
 .logo {
   height: 3.25rem;
+  margin-left: 3rem;
 }
 
 /*//?----------  SEARCH  ----------*/
 .search {
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &__input {
+    /*//* the following props don't all inherit unless specifically told to, but then will look up the parent tree until they find the 'prop:value', could be direct parent all the way up to the html tag. */
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--c-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    /*//* a high value will provide the rounded corners */
+    border-radius: 100px;
+    width: 90%;
+    /*//* extend input field over to where button w/ icon were */
+    margin-right: -2rem;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--c-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--c-grey-light-4);
+    }
   }
 
   &__button {
+    border: none;
+    background-color: transparent;
+    /*//* move button (w/ icon) on top of the input field */
+    position: relative;
+    right: 1rem;
+    transition: all 0.1s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
   }
 
   &__icon {
     height: 2rem;
     width: 2rem;
+    fill: var(--c-primary);
   }
 }
 

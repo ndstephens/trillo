@@ -38,12 +38,51 @@ body {
 
 /*//?----------  LOGO  ----------*/
 .logo {
-  height: 3.25rem; }
+  height: 3.25rem;
+  margin-left: 3rem; }
 
 /*//?----------  SEARCH  ----------*/
-.search__icon {
-  height: 2rem;
-  width: 2rem; }
+.search {
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .search__input {
+    /*//* the following props don't all inherit unless specifically told to, but then will look up the parent tree until they find the 'prop:value', could be direct parent all the way up to the html tag. */
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--c-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    /*//* a high value will provide the rounded corners */
+    border-radius: 100px;
+    width: 90%;
+    /*//* extend input field over to where button w/ icon were */
+    margin-right: -2rem;
+    transition: all 0.2s; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--c-grey-light-3); }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--c-grey-light-4); }
+  .search__button {
+    border: none;
+    background-color: transparent;
+    /*//* move button (w/ icon) on top of the input field */
+    position: relative;
+    right: 1rem;
+    transition: all 0.1s; }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(2px); }
+  .search__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--c-primary); }
 
 /*//?----------  USER NAVIGATION  ----------*/
 .user-nav__icon {
@@ -57,14 +96,18 @@ body {
 .container {
   max-width: 120rem;
   margin: 8rem auto;
-  background-color: var(--c-grey-light-2);
+  background-color: var(--c-grey-light-1);
   box-shadow: var(--sh-dark);
   min-height: 50rem; }
 
 .header {
+  font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: 1px solid var(--c-grey-light-2); }
+  border-bottom: 1px solid var(--c-grey-light-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
 
 .content {
   display: flex; }
