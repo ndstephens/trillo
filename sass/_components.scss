@@ -1,10 +1,11 @@
-/*//?----------  LOGO  ----------*/
+/*//?===============  HEADER SECTION  ================*/
+/*//?----------  MAIN LOGO  ----------*/
 .logo {
   height: 3.25rem;
   margin-left: 2rem;
 }
 
-/*//?----------  SEARCH  ----------*/
+/*//?----------  SEARCH INPUT FIELD ----------*/
 .search {
   flex: 0 1 40%;
   display: flex;
@@ -61,7 +62,7 @@
   }
 }
 
-/*//?----------  USER NAVIGATION  ----------*/
+/*//?----------  USER NAVIGATION / DETAILS ----------*/
 .user-nav {
   /*//* have entire element vertically fill the 'header' parent */
   align-self: stretch;
@@ -116,4 +117,77 @@
     border-radius: 50%;
     margin-right: 1rem;
   }
+}
+
+/*//?===============  SIDE-BAR NAVIGATION SECTION  ================*/
+/*//?----------  NAVIGATION  ----------*/
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    &::before {
+      /*//* remember, you need to add the 'content' property first */
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 4px;
+      background-color: var(--c-primary);
+      // transform-origin: bottom;
+      transform: scaleY(0);
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+    }
+
+    /*//* when Javascript code applies the class 'active' (depending on which page is currently loaded) apply this same hover styling to the '::before' pseudo-element */
+    &:hover::before,
+    &.active::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+
+    /*//* this the ':active' pseudo class (applies when clicked), DIFFERENT than the 'active' class seen above that would be controlled by Javascript in a real app */
+    &:active::before {
+      background-color: var(--c-primary-light);
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--c-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+    /*//* z-index only works if the 'position' is specified */
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    /*//* uses the color of the current or parent element (.side-nav__link).  would also follow any color changes created by a hover */
+    fill: currentColor;
+  }
+}
+
+/*//?----------  LEGAL  ----------*/
+.legal {
+  font-size: 1.2rem;
+  color: var(--c-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
 }
