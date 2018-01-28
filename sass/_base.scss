@@ -32,7 +32,8 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.6rem;
+  /*//* !!!! THE 'line-height' PROPERTY JUST TAKES A NUMBER, DO NOT ADD 'rem' AFTER IT !!!! */
+  line-height: 1.6;
   color: var(--c-grey-dark-2);
   background-image: linear-gradient(
     to right bottom,
