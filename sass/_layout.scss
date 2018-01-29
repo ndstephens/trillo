@@ -37,6 +37,8 @@
 }
 
 .detail {
+  /*//* put 'font-size' here so all child elements will inherit it */
+  font-size: 1.4rem;
   display: flex;
   padding: 4.5rem;
   background-color: var(--c-grey-light-1);
@@ -44,7 +46,6 @@
 }
 
 .description {
-  font-size: 1.4rem;
   background-color: #fff;
   box-shadow: var(--sh-light);
   padding: 3rem;
@@ -53,6 +54,9 @@
 }
 
 .user-reviews {
-  background-color: yellowgreen;
   flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
