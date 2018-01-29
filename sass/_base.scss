@@ -18,6 +18,12 @@
   --line: 1px solid var(--c-grey-light-2);
 }
 
+$bp-largest: 75em; // 1200/16
+$bp-large: 68.75em; // 1100/16
+$bp-medium: 59.375em; // 950/16
+$bp-small: 37.5em; // 600/16
+$bp-xsmall: 31.25em; // 500/16
+
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +37,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 body {
   font-family: "Open Sans", sans-serif;

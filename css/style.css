@@ -26,6 +26,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -51,6 +54,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+  @media only screen and (max-width: 31.25em) {
+    .search {
+      order: 1;
+      flex-basis: 90%;
+      margin: 0 auto; } }
   .search__input {
     /*//* the following props don't all inherit unless specifically told to, but then will look up the parent tree until they find the 'prop:value', could be direct parent all the way up to the html tag. */
     font-family: inherit;
@@ -135,12 +143,22 @@ body {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 59.375em) {
+    .side-nav {
+      display: flex;
+      margin: 0; } }
   .side-nav__item {
     position: relative;
     /*//* when Javascript code applies the class 'active' (depending on which page is currently loaded) apply this same hover styling to the '::before' pseudo-element */
     /*//* this the ':active' pseudo class (applies when clicked), DIFFERENT than the 'active' class seen above that would be controlled by Javascript in a real app */ }
     .side-nav__item:not(:last-child) {
       margin-bottom: 0.5rem; }
+      @media only screen and (max-width: 59.375em) {
+        .side-nav__item:not(:last-child) {
+          margin-bottom: 0; } }
+    @media only screen and (max-width: 59.375em) {
+      .side-nav__item {
+        flex: 1; } }
     .side-nav__item::before {
       /*//* remember, you need to add the 'content' property first */
       content: "";
@@ -167,12 +185,26 @@ body {
     z-index: 10;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 59.375em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        justify-content: center;
+        padding: 2rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem; } }
   .side-nav__icon {
     width: 1.75rem;
     height: 1.75rem;
     margin-right: 2rem;
     /*//* uses the color of the current or parent element (.side-nav__link).  would also follow any color changes created by a hover */
     fill: currentColor; }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__icon {
+        margin-right: 0;
+        margin-bottom: 5px;
+        width: 1.5rem;
+        height: 1.5rem; } }
 
 /*//?----------  LEGAL  ----------*/
 .legal {
@@ -180,6 +212,9 @@ body {
   color: var(--c-grey-light-4);
   text-align: center;
   padding: 2.5rem; }
+  @media only screen and (max-width: 59.375em) {
+    .legal {
+      display: none; } }
 
 /*//?===============  HOTEL-VIEW  ================*/
 /*//?----------  GALLERY  ----------*/
@@ -194,16 +229,35 @@ body {
   display: flex;
   align-items: center;
   border-bottom: var(--line); }
+  @media only screen and (max-width: 31.25em) {
+    .overview {
+      flex-wrap: wrap; }
+      .overview > * {
+        flex-basis: 50%; } }
   .overview__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__heading {
+        font-size: 1.8rem;
+        padding: 1.25rem 2rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .overview__heading {
+        font-size: 1.8rem;
+        background-color: var(--c-primary);
+        color: #fff;
+        display: flex;
+        justify-content: center; } }
   .overview__stars {
     margin-right: auto;
     /*//* the children elements (__icon-star) did not sit exactly center vertically.  they behaved like text in that they had space under them like text.  changing this parent to 'display: flex' made them flex items thereby removing the space and causing them to be centered ('align-items: center' wasn't needed) */
     display: flex; }
+    @media only screen and (max-width: 31.25em) {
+      .overview__stars {
+        justify-content: center; } }
   .overview__icon-star, .overview__icon-location {
     width: 1.75rem;
     height: 1.75rem;
@@ -212,6 +266,10 @@ body {
     font-size: 1.2rem;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 31.25em) {
+      .overview__location {
+        justify-content: center;
+        font-size: 1.5rem; } }
   .overview__icon-location {
     margin-right: 0.5rem; }
   .overview__rating {
@@ -224,14 +282,32 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating {
+        padding: 0 1.5rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .overview__rating {
+        margin: 0;
+        padding: 1.25rem;
+        flex-direction: row;
+        justify-content: space-around; } }
   .overview__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     /*//* slightly decrease the space between this and the '__rating-count' below it */
     margin-bottom: -3px; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating-average {
+        font-size: 2rem; } }
   .overview__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating-count {
+        font-size: 0.5rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .overview__rating-count {
+        font-size: 1.5rem; } }
 
 /*//?----------  BUTTON INLINE  ----------*/
 /*//* EXTEND */
@@ -307,6 +383,8 @@ body {
   align-items: center; }
   .recommend__count {
     margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
   .recommend__photo {
     /*//* don't want the border forcing the photos to shrink (since border is included in the height and width when using 'border-box').  in this case i want it added to the outside of the image content */
     box-sizing: content-box;
@@ -316,7 +394,7 @@ body {
     border: 3px solid #fff;
     /*//* have them overlap each other */ }
     .recommend__photo:not(:last-of-type) {
-      margin-right: -1.5rem; }
+      margin-right: -2rem; }
 
 /*//?----------  REVIEWS  ----------*/
 .review {
@@ -326,6 +404,10 @@ body {
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden; }
+  @media only screen and (max-width: 59.375em) {
+    .review {
+      padding: 2rem;
+      margin-bottom: 3rem; } }
   .review::before {
     content: "\201C";
     position: absolute;
@@ -367,6 +449,9 @@ body {
 .cta {
   padding: 3.5rem 0;
   text-align: center; }
+  @media only screen and (max-width: 59.375em) {
+    .cta {
+      padding: 2.5rem 0; } }
   .cta__book-now {
     font-size: 2rem;
     font-weight: 300;
@@ -411,6 +496,11 @@ body {
   background-color: var(--c-grey-light-1);
   box-shadow: var(--sh-dark);
   min-height: 50rem; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
 
 .header {
   font-size: 1.4rem;
@@ -420,9 +510,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media only screen and (max-width: 31.25em) {
+    .header {
+      flex-wrap: wrap;
+      align-content: space-around;
+      height: 11rem; } }
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 59.375em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--c-grey-dark-1);
@@ -442,6 +540,12 @@ body {
   padding: 4.5rem;
   background-color: var(--c-grey-light-1);
   border-bottom: var(--line); }
+  @media only screen and (max-width: 59.375em) {
+    .detail {
+      padding: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .detail {
+      flex-direction: column; } }
 
 .description {
   background-color: #fff;
@@ -449,6 +553,14 @@ body {
   padding: 3rem;
   flex: 0 1 60%;
   margin-right: 4.5rem; }
+  @media only screen and (max-width: 59.375em) {
+    .description {
+      padding: 2rem;
+      margin-right: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
 
 .user-reviews {
   flex: 1;
