@@ -363,6 +363,48 @@ body {
     color: var(--c-primary);
     font-weight: 300; }
 
+/*//?----------  CALL-T0-ACTION  ----------*/
+.cta {
+  padding: 3.5rem 0;
+  text-align: center; }
+  .cta__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem; }
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(to right, var(--c-primary-light), var(--c-primary-dark));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; }
+  .btn:focus {
+    outline: none; }
+  .btn:hover {
+    background-image: linear-gradient(to left, var(--c-primary-light), var(--c-primary-dark)); }
+  .btn > * {
+    display: inline-block;
+    transition: all 0.2s; }
+  .btn__visible {
+    padding: 2rem 7.5rem; }
+  .btn__invisible {
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0;
+    position: absolute;
+    left: 0;
+    top: -100%; }
+  .btn:hover .btn__visible {
+    transform: translateY(100%); }
+  .btn:hover .btn__invisible {
+    top: 0; }
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
