@@ -444,3 +444,69 @@
     font-weight: 300;
   }
 }
+
+/*//?----------  CALL-T0-ACTION  ----------*/
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    var(--c-primary-light),
+    var(--c-primary-dark)
+  );
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--c-primary-light),
+      var(--c-primary-dark)
+    );
+  }
+
+  & > * {
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+  &__invisible {
+    height: 100%;
+    width: 100%;
+    padding: 2rem 0;
+    position: absolute;
+    left: 0;
+    top: -100%;
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+  &:hover &__invisible {
+    top: 0;
+  }
+}
