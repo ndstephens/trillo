@@ -1,4 +1,4 @@
-/*//?===============  HEADER SECTION  ================*/
+/*//?===============  HEADER  ================*/
 /*//?----------  MAIN LOGO  ----------*/
 .logo {
   height: 3.25rem;
@@ -119,7 +119,7 @@
   }
 }
 
-/*//?===============  SIDE-BAR NAVIGATION SECTION  ================*/
+/*//?===============  SIDEBAR  ================*/
 /*//?----------  NAVIGATION  ----------*/
 .side-nav {
   font-size: 1.4rem;
@@ -192,7 +192,7 @@
   padding: 2.5rem;
 }
 
-/*//?===============  HOTEL OVERVIEW  ================*/
+/*//?===============  HOTEL-VIEW  ================*/
 /*//?----------  GALLERY  ----------*/
 .gallery {
   display: flex;
@@ -206,7 +206,7 @@
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--c-grey-light-2);
+  border-bottom: var(--line);
 
   &__heading {
     font-size: 2.25rem;
@@ -299,5 +299,71 @@
   100% {
     transform: scale(1);
     box-shadow: none;
+  }
+}
+
+/*//?----------  DETAIL  ----------*/
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+.list {
+  margin: 3rem 0;
+  list-style: none;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex-basis: 50%;
+    margin-bottom: 0.7rem;
+
+    &::before {
+      /*//* !!! DON'T FORGET to add the 'content' prop, and it needs to height and width to display !!! */
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.7rem;
+
+      /*//* use the SVG image as a mask so you can color it (by exposing the background-color).  don't forget to use 'mask-size: cover' */
+      background-color: var(--c-primary);
+      -webkit-mask-image: url("../img/chevron-thin-right.svg");
+      -webkit-mask-size: cover;
+      mask-image: url("../img/chevron-thin-right.svg");
+      mask-size: cover;
+
+      /*//* for older browsers */
+      // background-image: url("../img/chevron-thin-right.svg");
+      // background-size: cover;
+    }
+  }
+}
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--c-grey-dark-3);
+  display: flex;
+  align-items: center;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__photo {
+    /*//* don't want the border forcing the photos to shrink (since border is included in the height and width when using 'border-box').  in this case i want it added to the outside of the image content */
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    /*//* have them overlap each other */
+    &:not(:last-of-type) {
+      margin-right: -1.5rem;
+    }
   }
 }
