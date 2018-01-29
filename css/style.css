@@ -368,13 +368,19 @@ body {
       height: 1rem;
       width: 1rem;
       margin-right: 0.7rem;
-      /*//* use the SVG image as a mask so you can color it (by exposing the background-color).  don't forget to use 'mask-size: cover' */
-      background-color: var(--c-primary);
-      -webkit-mask-image: url("../img/chevron-thin-right.svg");
-      -webkit-mask-size: cover;
-      mask-image: url("../img/chevron-thin-right.svg");
-      mask-size: cover;
-      /*//* for older browsers */ }
+      /*//* OLDER BROWSERS */
+      background-image: url("../img/chevron-thin-right.svg");
+      background-size: cover;
+      /*//* NEWER BROWSERS */
+      /*//* use the SVG image as a mask so you can color it (by exposing the background-color).  don't forget to use 'mask-size: cover' */ }
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        .list__item::before {
+          background-color: var(--c-primary);
+          -webkit-mask-image: url("../img/chevron-thin-right.svg");
+          -webkit-mask-size: cover;
+          mask-image: url("../img/chevron-thin-right.svg");
+          mask-size: cover;
+          background-image: none; } }
 
 .recommend {
   font-size: 1.3rem;
